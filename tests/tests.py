@@ -165,5 +165,6 @@ class TestTaskQueue(unittest.TestCase):
 
         filtered = queue.filter_by_priority("high")
         self.assertEqual(len(list(filtered)), 0)
+
 if __name__ == "__main__":
     unittest.main()
