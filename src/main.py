@@ -1,6 +1,5 @@
-from datetime import time
-import time
 from src.Task import Task
+from src.TaskQueue import TaskQueue
 from src.TaskSource import TaskSource
 from src.FileTaskSource import FileTaskSource
 from src.GeneratorTaskSource import GeneratorTaskSource
@@ -11,36 +10,35 @@ from src.exceptions import TaskPriorityError, TaskIdError
 
 def main():
     """Вход в приложение и создание tasks и вызов методов"""
-    task = Task(id="Task1", description="Описание", priority="high")
+    tasks = [
+        Task(id="Task1", description="Первая задача", priority="high"),
+        Task(id="Task2", description="Вторая задача", priority="low"),
+        Task(id="Task3", description="Третья задача", priority="medium"),
+        Task(id="Task1", description="Первая задача", priority="high"),
+        Task(id="Task2", description="Вторая задача", priority="low"),
+        Task(id="Task3", description="Третья задача", priority="medium"),
+        Task(id="Task1", description="Первая задача", priority="high"),
+        Task(id="Task2", description="Вторая задача", priority="low"),
+        Task(id="Task3", description="Третья задача", priority="medium"),
+    ]
 
-    print(f"Задача создана: {task}")
-    print(task.is_ready)
-    print(f"Возраст задачи: {task.age_seconds:.4f} сек")
+    queue = TaskQueue(tasks)
 
-    task.start()
-    print(task.status, task.icon)
-    time.sleep(1.1)
-    print(task.is_overdue)
+    print("Первый обход (фильтрация)")
+    high_prio = queue.filter_by_priority("high")
+    for task in high_prio:
+        print(f"Найдена: {task.id} [{task.priority}]")
 
-    task.complete()
-    print(task.is_completed, task.icon)
+    print("\nПовторный обход (вся очередь через list)")
+    all_tasks = list(queue)
+    print(f"Количество задач при повторном обращении: {len(all_tasks)}")
 
-    try:
-        task.priority = "fake"
-    except TaskPriorityError as e:
-        print(f"Ошибка {e}")
+    for t in all_tasks:
+        print(f"- {t.id}: {t.description}")
 
-    try:
-        task.id = 12345
-    except TaskIdError as e:
-        print(f"Ошибка {e}")
+    print("\nТретий обход (фильтр по low)")
+    low_prio = queue.filter_by_priority("low")
+    print(f"Задач с низким приоритетом: {sum(1 for _ in low_prio)}")
 
-    print(f"Иконка по умолчанию {task.icon}")
-    task.icon = "🔥"
-    print(f"Иконка после правки {task.icon}")
-
-    print(f"Текущий приоритет: {task.priority}")
-    task.__dict__['priority'] = "fake"
-    print(f"Лезем грязными руками {task.priority}")
 if __name__ == "__main__":
     main()
