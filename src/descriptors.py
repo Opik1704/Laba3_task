@@ -1,7 +1,7 @@
 import re
 from typing import Optional, Any
 
-from Laba2_task.src.exceptions import *
+from src.exceptions import *
 
 
 class IdDescriptor:

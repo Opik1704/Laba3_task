@@ -1,13 +1,12 @@
 from datetime import time
 import time
-from Laba2_task.src.Task import Task
-from Laba2_task.src.TaskSource import TaskSource
-from Laba2_task.src.FileTaskSource import FileTaskSource
-from Laba2_task.src.GeneratorTaskSource import GeneratorTaskSource
-from Laba2_task.src.APITaskSource import APITaskSource
-import json
+from src.Task import Task
+from src.TaskSource import TaskSource
+from src.FileTaskSource import FileTaskSource
+from src.GeneratorTaskSource import GeneratorTaskSource
+from src.APITaskSource import APITaskSource
 
-from Laba2_task.src.exceptions import TaskPriorityError, TaskIdError
+from src.exceptions import TaskPriorityError, TaskIdError
 
 
 def main():

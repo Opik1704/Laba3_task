@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from Laba2_task.src.descriptors import *
-from Laba2_task.src.exceptions import *
+from src.descriptors import *
+from src.exceptions import *
 
 class Task:
     id = IdDescriptor()

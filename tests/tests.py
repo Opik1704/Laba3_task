@@ -2,11 +2,10 @@ import unittest
 import os
 import json
 import tempfile
-from Laba2_task.src.Task import Task
-from Laba2_task.src.FileTaskSource import FileTaskSource
-from Laba2_task.src.descriptors import IdDescriptor, PriorityDescriptor, StatusDescriptor
-from Laba2_task.src.exceptions import TaskPriorityError, TaskIdError, TaskStateError, TaskDescriptionError, \
-    TaskStatusError
+from src.Task import Task
+from src.FileTaskSource import FileTaskSource
+from src.descriptors import IdDescriptor, PriorityDescriptor, StatusDescriptor
+from src.exceptions import TaskPriorityError, TaskIdError, TaskStateError, TaskDescriptionError,TaskStatusError
 
 
 class TestDescriptors(unittest.TestCase):
