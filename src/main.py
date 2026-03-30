@@ -27,18 +27,17 @@ def main():
     print("Первый обход (фильтрация)")
     high_prio = queue.filter_by_priority("high")
     for task in high_prio:
-        print(f"Найдена: {task.id} [{task.priority}]")
+        print(f"Найдена {task.id} [{task.priority}]")
 
     print("\nПовторный обход (вся очередь через list)")
     all_tasks = list(queue)
-    print(f"Количество задач при повторном обращении: {len(all_tasks)}")
+    print(f"Количество задач при повторном обращении {len(all_tasks)}")
 
     for t in all_tasks:
         print(f"- {t.id}: {t.description}")
 
-    print("\nТретий обход (фильтр по low)")
-    low_prio = queue.filter_by_priority("low")
-    print(f"Задач с низким приоритетом: {sum(1 for _ in low_prio)}")
+    low_count = sum(1 for _ in queue.filter_by_priority("low"))
+    print(f"Количество задач с низким приоритетом: {low_count}")
 
 if __name__ == "__main__":
     main()
