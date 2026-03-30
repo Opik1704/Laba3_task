@@ -1,5 +1,3 @@
-from typing import List
-
 from src.TaskSource import TaskSource
 from src.Task import Task
 
@@ -18,7 +16,6 @@ class APITaskSource:
     def get_tasks(self):
         """
           Имитирует получение задач от внешнего API.
-          Returns: List[Task]: Список задач из мок-данных API или пустой список в случае ошибки
           """
         try:
             tasks = []

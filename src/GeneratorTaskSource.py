@@ -14,7 +14,6 @@ class GeneratorTaskSource:
     def get_tasks(self) -> List[Task]:
         """
            Генерирует указанное количество задач
-           Returns: List[Task]: Список сгенерированных задач
         """
         tasks = []
         for i in range(self.count):

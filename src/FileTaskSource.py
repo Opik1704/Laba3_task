@@ -15,7 +15,6 @@ class FileTaskSource:
     def get_tasks(self) -> List[Task]:
         """
         Читает задачи из JSON файла и преобразует их в объекты Task
-        Returns:List[Task]: Список задач из файла или пустой список в случае ошибки
         """
         try:
             with open(self.filename, "r", encoding="utf-8") as f:
