@@ -140,7 +140,7 @@ class TestTaskQueue(unittest.TestCase):
         first_pass = [t.id for t in self.queue]
         second_pass = [t.id for t in self.queue]
 
-        self.assertEqual(first_pass, second_pass, "Очередь 'опустела' после первого прохода!")
+        self.assertEqual(first_pass, second_pass, "очередь опустела после первого прохода")
         self.assertEqual(len(second_pass), 3)
 
     def test_chained_filters(self):
